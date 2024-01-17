@@ -1,6 +1,7 @@
 # MoodBrew
 
-## An app where you can get recommended tea's based on your mood or health. 
+## Description
+An app where you can get recommended tea's based on your mood or health.
 
 ## Team Members
 - Kushal
@@ -10,3 +11,4 @@
 - Meelaud
 
 ## API's
+[Review API](https://reviewapi.com/)
