@@ -3,25 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  /* Color styles */
+  --sage: rgba(181, 201, 127, 1);
+  --taupe: rgba(63, 57, 53, 1);
+  --dun: rgba(230, 204, 178, 1);
+  --seasalt: rgba(247, 247, 249, 1);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+  /* Text-size styles */
+  /* base size: paragraph--main (18px) */
+  --heading-1: 2.33rem;
+  --heading-2: 2rem;
+  --heading-3: 1.33rem;
+  --paragraph--main: 1rem;
+  --paragraph--large: 1.33rem;
+  --paragraph--small: 0.78rem;
+  --display--heading: 3.56rem;
+  --paragraph--small--bold: 0.78rem;
+  --paragraph--large--medium: 1.33rem;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* Font weight */
+  --font-weight--light: 300;
+  --font-weight--normal: 400;
+  --font-weight--medium: 500;
+  --font-weight--semibold: 600;
+  --font-weight--bold: 700;
+  --font-weight--extrabold: 800;
+  --font-weight--black: 900;
 }
