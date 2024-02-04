@@ -13,10 +13,10 @@
   --h1: 2.33rem;
   --h2: 2rem;
   --h3: 1.33rem;
-  --medium: 1rem;
-  --large: 1.33rem;
-  --small: 0.78rem;
-  --display: 3.56rem;
+  --md: 1rem;
+  --lg: 1.33rem;
+  --sm: 0.78rem;
+  --di: 3.56rem;
 
   /* Font weight */
   --light: 300;
@@ -27,5 +27,4 @@
   --extrabold: 800;
   --black: 900;
 }
-
 
