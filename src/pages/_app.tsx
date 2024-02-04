@@ -3,12 +3,14 @@ import type { AppProps } from 'next/app'
 import '@mantine/core/styles.css';
 import { createTheme, MantineProvider } from '@mantine/core';
 
-const theme = createTheme({
-  
-});
+const theme = {
+
+};
 
 
-/*fontFamily: 'Satoshi, sans-serif',
+
+/*idk how to make this work
+fontFamily: 'Satoshi, sans-serif',
 primaryColor: 'taupe',
 colors: {
   sage: ['rgba(181, 201, 127, 1)'],
