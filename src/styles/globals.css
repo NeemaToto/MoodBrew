@@ -11,22 +11,22 @@
 
   /* Text-size styles */
   /* base size: paragraph--main (18px) */
-  --heading-1: 2.33rem;
-  --heading-2: 2rem;
-  --heading-3: 1.33rem;
-  --paragraph--main: 1rem;
-  --paragraph--large: 1.33rem;
-  --paragraph--small: 0.78rem;
-  --display--heading: 3.56rem;
-  --paragraph--small--bold: 0.78rem;
-  --paragraph--large--medium: 1.33rem;
+  --h1: 2.33rem;
+  --h2: 2rem;
+  --h3: 1.33rem;
+  --medium: 1rem;
+  --large: 1.33rem;
+  --small: 0.78rem;
+  --display: 3.56rem;
 
   /* Font weight */
-  --font-weight--light: 300;
-  --font-weight--normal: 400;
-  --font-weight--medium: 500;
-  --font-weight--semibold: 600;
-  --font-weight--bold: 700;
-  --font-weight--extrabold: 800;
-  --font-weight--black: 900;
+  --light: 300;
+  --normal: 400;
+  --medium: 500;
+  --semibold: 600;
+  --bold: 700;
+  --extrabold: 800;
+  --black: 900;
 }
+
+
