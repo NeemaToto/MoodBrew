@@ -8,23 +8,5 @@
   --taupe: rgba(63, 57, 53, 1);
   --dun: rgba(230, 204, 178, 1);
   --seasalt: rgba(247, 247, 249, 1);
-
-  /* Text-size styles */
-  --h1: 2.33rem;
-  --h2: 2rem;
-  --h3: 1.33rem;
-  --md: 1rem;
-  --lg: 1.33rem;
-  --sm: 0.78rem;
-  --di: 3.56rem;
-
-  /* Font weight */
-  --light: 300;
-  --normal: 400;
-  --medium: 500;
-  --semibold: 600;
-  --bold: 700;
-  --extrabold: 800;
-  --black: 900;
 }
 
