@@ -1,63 +1,51 @@
 import {
-    HoverCard,
     Group,
     Button,
-    UnstyledButton,
-    Text,
-    SimpleGrid,
-    ThemeIcon,
-    Anchor,
     Divider,
-    Center,
     Box,
     Burger,
     Drawer,
-    Collapse,
     ScrollArea,
     rem,
-    useMantineTheme,
+    Avatar,
+    Title,
+    Anchor
 } from '@mantine/core';
+
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Header.module.css';
 
-
 export function Header() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-    const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-    const theme = useMantineTheme();
 
     return (
-        <Box pb={120}>
+        <Box pb={35} pt={35}>
             <header className={classes.header}>
                 <Group justify="space-between" h="100%">
-                    moodbrew
-
+                    <Group>
+                        <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
+                        <Title order={4} fw={700} c='taupe'>Mood Brew</Title>
+                    </Group>
                     <Group h="100%" gap={0} visibleFrom="sm">
-                        <a href="#" className={classes.link}>
+                        <Anchor c='taupe' href="#" className={classes.link}>
                             Home
-                        </a>
-                        
-                        <a href="#" className={classes.link}>
-                            Learn
-                        </a>
-
-                        <a href="#" className={classes.link}>
-                            Academy
-                        </a>
+                        </Anchor>
+                        <Anchor c='taupe' href="#" className={classes.link}>
+                            Teas
+                        </Anchor>
+                        <Anchor c='taupe' href="#" className={classes.link}>
+                            About Us
+                        </Anchor>
                     </Group>
 
                     <Group visibleFrom="sm">
-                        <Button variant="default">Log in</Button>
-                        <Button>Sign up</Button>
+                        <Button variant="transparent" color='taupe'>Sign up</Button>
+                        <Button color='taupe'>Log in</Button>
                     </Group>
 
                     <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
                 </Group>
             </header>
-
-
-
-
 
             <Drawer
                 opened={drawerOpened}
@@ -71,25 +59,16 @@ export function Header() {
                 <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
                     <Divider my="sm" />
 
-                    <a href="#" className={classes.link}>
+                    <Anchor c='taupe' href="#" className={classes.link}>
                         Home
-                    </a>
-                    <UnstyledButton className={classes.link} onClick={toggleLinks}>
-                        <Center inline>
-                            <Box component="span" mr={5}>
-                                Features
-                            </Box>
-                            {`>`}
-                        </Center>
-                    </UnstyledButton>
+                    </Anchor>
 
-                  
-                    <a href="#" className={classes.link}>
+                    <Anchor c='taupe' href="#" className={classes.link}>
                         Learn
-                    </a>
-                    <a href="#" className={classes.link}>
+                    </Anchor>
+                    <Anchor c='taupe' href="#" className={classes.link}>
                         Academy
-                    </a>
+                    </Anchor>
 
                     <Divider my="sm" />
 
