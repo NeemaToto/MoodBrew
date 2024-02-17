@@ -64,10 +64,10 @@ export function Header() {
                     </Anchor>
 
                     <Anchor c='taupe' href="#" className={classes.link}>
-                        Learn
+                        Teas
                     </Anchor>
                     <Anchor c='taupe' href="#" className={classes.link}>
-                        Academy
+                        About Us
                     </Anchor>
 
                     <Divider my="sm" />
