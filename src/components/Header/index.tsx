@@ -10,6 +10,7 @@ import {
     Avatar,
     Title,
     Anchor
+    
 } from '@mantine/core';
 
 import { useDisclosure } from '@mantine/hooks';
@@ -22,18 +23,20 @@ export function Header() {
         <Box pb={35} pt={35}>
             <header className={classes.header}>
                 <Group justify="space-between" h="100%">
-                    <Group>
-                        <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
-                        <Title order={4} fw={700} c='taupe'>Mood Brew</Title>
-                    </Group>
+                    <Anchor href="/" >
+                        <Group>
+                                <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
+                                <Title order={4} fw={700} c='taupe'>Mood Brew</Title>
+                        </Group>
+                    </Anchor>
                     <Group h="100%" gap={0} visibleFrom="sm">
-                        <Anchor c='taupe' href="#" className={classes.link}>
+                        <Anchor c='taupe' href="/" className={classes.link}>
                             Home
                         </Anchor>
-                        <Anchor c='taupe' href="#" className={classes.link}>
+                        <Anchor c='taupe' href="teas" className={classes.link}>
                             Teas
                         </Anchor>
-                        <Anchor c='taupe' href="#" className={classes.link}>
+                        <Anchor c='taupe' href="about" className={classes.link}>
                             About Us
                         </Anchor>
                     </Group>
@@ -59,14 +62,14 @@ export function Header() {
                 <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
                     <Divider my="sm" />
 
-                    <Anchor c='taupe' href="#" className={classes.link}>
+                    <Anchor c='taupe' href="/" className={classes.link}>
                         Home
                     </Anchor>
 
-                    <Anchor c='taupe' href="#" className={classes.link}>
+                    <Anchor c='taupe' href="teas" className={classes.link}>
                         Teas
                     </Anchor>
-                    <Anchor c='taupe' href="#" className={classes.link}>
+                    <Anchor c='taupe' href="about" className={classes.link}>
                         About Us
                     </Anchor>
 
@@ -81,3 +84,7 @@ export function Header() {
         </Box>
     );
 }
+
+
+
+

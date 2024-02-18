@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import '@mantine/core/styles.css';
 import { createTheme, MantineProvider, rem } from '@mantine/core';
+import { Header } from '../components/Header'
 
 const theme = createTheme({
   primaryColor: "sage",
@@ -45,7 +46,12 @@ const theme = createTheme({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider theme={theme}>
-      <Component {...pageProps} />
+      <div style={{ paddingLeft: rem(52), paddingRight: rem(52) }}>
+
+        <Header/>
+        <Component {...pageProps} />
+
+      </div>
     </MantineProvider>
   )
 }
