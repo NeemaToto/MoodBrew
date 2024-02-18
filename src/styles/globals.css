@@ -8,5 +8,10 @@
   --taupe: rgba(63, 57, 53, 1);
   --dun: rgba(230, 204, 178, 1);
   --seasalt: rgba(247, 247, 249, 1);
+  --isabelline: rgba(242, 236, 231);
+}
+
+main{
+  min-height: 100vh;
 }
 
