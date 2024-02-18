@@ -51,10 +51,9 @@ const theme = createTheme({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider theme={theme}>
-      <Component className={satoshi.className} {...pageProps} />
       <div style={{ paddingLeft: rem(52), paddingRight: rem(52) }}>
         <Header/>
-        <Component {...pageProps} />
+        <Component className={satoshi.className} {...pageProps} />
       </div>
       <Footer/>
     </MantineProvider>
