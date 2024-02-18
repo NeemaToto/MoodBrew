@@ -23,7 +23,7 @@ export function Header() {
         <Box pb={35} pt={35}>
             <header className={classes.header}>
                 <Group justify="space-between" h="100%">
-                    <Anchor href="/" >
+                    <Anchor href="/" style={{ textDecoration: 'none' }} >
                         <Group>
                                 <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
                                 <Title order={4} fw={700} c='taupe'>Mood Brew</Title>
