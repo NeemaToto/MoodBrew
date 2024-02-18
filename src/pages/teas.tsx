@@ -1,11 +1,18 @@
 import React from 'react'
-import { Button, Text, rem } from '@mantine/core'
+import { Button, Text, Title, Stack, rem } from '@mantine/core'
 import classes from '@/styles/Teas.module.css'
 
 export default function Teas() {
   return (
     <main className={``}>
-        teas
+      <Stack gap="sm">
+        <Title c="taupe" order={1}>
+          Looking for a Tea?
+        </Title>
+        <Text c="taupe" size="lg">
+          Use the search bar or navigate through our catalogue to find the perfect tea for your mood.
+        </Text>
+      </Stack>
     </main>
-  )
+  );
 }

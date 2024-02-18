@@ -1,14 +1,7 @@
-
-
-.chevron {
-   
-
-    
-  }
-
-  
-  .icon {
-    width: rem(16px);
-    height: rem(16px);
-  } 
+.faq{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 

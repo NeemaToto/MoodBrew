@@ -14,49 +14,49 @@ export default function SignupForm() {
             Sign Up for free
           </Title>
           <Text c="taupe" size="sm">
-            By making an account you can post reviews and share your experiences!{" "}
+            By making an account you can post reviews and share your experiences!
           </Text>
         </Stack>
-      <form className={classes.form}>
-        <Title order={4} c="taupe" pb="sm">
-          Sign Up Now!
-        </Title>
-        <Stack>
-          <Group justify="space-between" gap="1rem" style={{ display: "flex" }}>
-            <Input.Wrapper
-              label="First name"
-              withAsterisk
-              description=""
-              style={{ flex: 1 }}
-            >
-              <Input placeholder="your first name" />
+        <form className={classes.form}>
+          <Title order={4} c="taupe" pb="sm">
+            Sign Up Now!
+          </Title>
+          <Stack>
+            <Group justify="space-between" gap="1rem" style={{ display: "flex" }}>
+              <Input.Wrapper
+                label="First name"
+                withAsterisk
+                description=""
+                style={{ flex: 1 }}
+              >
+                <Input placeholder="your first name" />
+              </Input.Wrapper>
+              <Input.Wrapper
+                label="Last name"
+                withAsterisk
+                description=""
+                style={{ flex: 1 }}
+              >
+                <Input placeholder="your last name" />
+              </Input.Wrapper>
+            </Group>
+            <Input.Wrapper label="Email" withAsterisk description="">
+              <Input placeholder="@ Your email" />
             </Input.Wrapper>
-            <Input.Wrapper
-              label="Last name"
-              withAsterisk
-              description=""
-              style={{ flex: 1 }}
-            >
-              <Input placeholder="your last name" />
+            <Input.Wrapper label="Password" withAsterisk description="">
+              <Input placeholder="Password" />
             </Input.Wrapper>
+            <Input.Wrapper label="Confirm Password" withAsterisk description="">
+              <Input placeholder="Confirm password" />
+            </Input.Wrapper>
+          </Stack>
+          <Group justify="space-between" gap="1rem" style={{ display: "flex", paddingTop: "1.5rem" }}>
+            <Button>
+              <Text size="md">Register</Text>
+            </Button>
           </Group>
-          <Input.Wrapper label="Email" withAsterisk description="">
-            <Input placeholder="@ Your email" />
-          </Input.Wrapper>
-          <Input.Wrapper label="Password" withAsterisk description="">
-            <Input placeholder="Password" />
-          </Input.Wrapper>
-          <Input.Wrapper label="Confirm Password" withAsterisk description="">
-            <Input placeholder="Confirm password" />
-          </Input.Wrapper>
-        </Stack>
-        <Group justify="space-between" gap="1rem" style={{ display: "flex", paddingTop: "1.5rem" }}>
-          <Button>
-            <Text size="md">Register</Text>
-          </Button>
-        </Group>
-      </form>
-    </Flex>
+        </form>
+      </Flex>
     </div>
   );
 }
