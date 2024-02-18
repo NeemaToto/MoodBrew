@@ -1,4 +1,10 @@
 .footer{
     background-color: var(--isabelline);
-    
+    padding-top: 72px;
+    padding-bottom: 32px;
+    .border{
+        padding-top: 2rem;
+        border-top: 1px solid var(--sage);
+        text-align: center;
+    }
 }
