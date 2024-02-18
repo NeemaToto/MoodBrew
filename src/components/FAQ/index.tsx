@@ -28,10 +28,10 @@ export default function FAQ() {
             Support
           </Text>
           <Stack>
-            <Title c="taupe" order={2} fw={700}>
+            <Title c="taupe" order={2} fw={800}>
               Frequently asked
             </Title>
-            <Text c="taupe" size={isSmallScreen ? "sm" : "md"}>
+            <Text c="taupe" size={isSmallScreen ? "md" : "md"}>
               Explore our FAQs to learn more about how MoodBrew personalizes tea
               recommendations for your mood and health.
             </Text>
@@ -42,7 +42,7 @@ export default function FAQ() {
           chevron={
             <IconPlus
               className={classes.icon}
-              style={{ color: "var(--taupe)" }}
+              style={{ color: "var(--taupe)"  }}
             />
           }
         >
@@ -51,7 +51,8 @@ export default function FAQ() {
             direction={isSmallScreen ? "column" : "row"}
           >
             <Stack>
-              <Accordion.Item value="what">
+              <Accordion.Item value="what"
+              style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={
                     <IconMug
@@ -63,7 +64,7 @@ export default function FAQ() {
                     />
                   }
                 >
-                  <Text fw={500} c="taupe" pr="md">
+                  <Text fw={700} c="taupe" pr="md">
                     What Is MoodBrew?
                   </Text>
                 </Accordion.Control>
@@ -81,7 +82,7 @@ export default function FAQ() {
                 </Accordion.Panel>
               </Accordion.Item>
 
-              <Accordion.Item value="recommend">
+              <Accordion.Item value="recommend" style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={
                     <IconTeapot
@@ -93,7 +94,7 @@ export default function FAQ() {
                     />
                   }
                 >
-                  <Text fw={500} c="taupe" pr="md">
+                  <Text fw={700} c="taupe" pr="md">
                     What Should I Do If I Don’t Like A Tea Recommended By
                     MoodBrew?
                   </Text>
@@ -118,7 +119,7 @@ export default function FAQ() {
               </Accordion.Item>
             </Stack>
             <Stack>
-              <Accordion.Item value="how">
+              <Accordion.Item value="how" style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={
                     <IconDatabaseSearch
@@ -130,7 +131,7 @@ export default function FAQ() {
                     />
                   }
                 >
-                  <Text fw={500} c="taupe" pr="md">
+                  <Text fw={700} c="taupe" pr="md">
                     How Does MoodBrew Work?
                   </Text>
                 </Accordion.Control>
@@ -151,7 +152,7 @@ export default function FAQ() {
                 </Accordion.Panel>
               </Accordion.Item>
 
-              <Accordion.Item value="quality">
+              <Accordion.Item value="quality" style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={
                     <IconUserQuestion
@@ -163,7 +164,7 @@ export default function FAQ() {
                     />
                   }
                 >
-                  <Text fw={500} c="taupe" pr="md">
+                  <Text fw={700} c="taupe" pr="md">
                     How Do We Ensure the Quality and Safety of the Teas
                     Recommended?
                   </Text>

@@ -26,7 +26,7 @@ export function Header() {
                     <Anchor href="/" style={{ textDecoration: 'none' }} >
                         <Group>
                                 <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
-                                <Title order={4} fw={700} c='taupe'>Mood Brew</Title>
+                                <Title order={4} fw={800} c='taupe'>Mood Brew</Title>
                         </Group>
                     </Anchor>
                     <Group h="100%" gap={0} visibleFrom="sm">

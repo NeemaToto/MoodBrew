@@ -6,7 +6,7 @@ export default function About() {
   return (
     <main className={``}>
       <Stack gap="sm">
-        <Title c="taupe" order={1}>
+        <Title c="taupe" order={1} fw={800}>
           About Us
         </Title>
         <Text c="taupe" size="lg">

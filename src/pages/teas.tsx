@@ -6,7 +6,7 @@ export default function Teas() {
   return (
     <main className={``}>
       <Stack gap="sm">
-        <Title c="taupe" order={1}>
+        <Title c="taupe" order={1} fw={800}>
           Looking for a Tea?
         </Title>
         <Text c="taupe" size="lg">

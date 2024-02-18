@@ -7,14 +7,13 @@ export default function Home() {
   return (
       <main className={``}>
         <Stack gap="sm">
-          <Title c="taupe" order={1}>
+          <Title c="taupe" order={1} fw={800}>
             Brew Your Mood
           </Title>
           <Text c="taupe" size='lg'>
           Explore Over 100 Unique Tea Suggestions Tailored for Health and Mood.
           </Text>
         </Stack>
-        <Text c='taupe' size='sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati nulla neque unde reiciendis voluptate itaque dolorem saepe excepturi? Dolor sint, ipsam asperiores aut natus id recusandae nemo ad accusantium quo.</Text>
         <FAQ />
       </main>
 
