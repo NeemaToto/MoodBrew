@@ -47,8 +47,6 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
   return (
     <>
       <main className={styles.grid}>
-
-
         {filteredTeas.map((tea, index) => (
           <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
@@ -61,7 +59,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
 
             <Group justify="space-between" mt="md" mb="xs">
               <Text fw={500}>{tea.teaName}</Text>
-              <Badge color="taupe">{tea.benefit}</Badge>
+              <Badge color="taupe">Benefit For: {tea.benefit}</Badge>
             </Group>
 
             <Text size="sm" c="dimmed">
