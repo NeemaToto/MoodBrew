@@ -13,5 +13,6 @@
 
 main{
   min-height: 100vh;
+  color: var(--taupe);
 }
 

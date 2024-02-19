@@ -18,7 +18,7 @@ export function Header() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const router = useRouter();
 
-    const isActive = (path) => router.pathname === path;
+    const isActive = (path: string) => router.pathname === path;
 
     return (
         <Box pb={35} pt={35}>
