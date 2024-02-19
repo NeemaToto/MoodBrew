@@ -9,36 +9,37 @@ import {
     rem,
     Avatar,
     Title,
-    Anchor
-    
 } from '@mantine/core';
-
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Header.module.css';
+import { useRouter } from 'next/router';
 
 export function Header() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+    const router = useRouter();
+
+    const isActive = (path) => router.pathname === path;
 
     return (
         <Box pb={35} pt={35}>
             <header className={classes.header}>
                 <Group justify="space-between" h="100%">
-                    <Anchor href="/" style={{ textDecoration: 'none' }} >
+                    <a href="/" style={{ textDecoration: 'none' }}>
                         <Group>
-                                <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
-                                <Title order={4} fw={800} c='taupe'>Mood Brew</Title>
+                            <Avatar src='/logo/MoodBrewLogo.svg' size='lg' />
+                            <Title order={4} fw={800} c='taupe'>Mood Brew</Title>
                         </Group>
-                    </Anchor>
+                    </a>
                     <Group h="100%" gap={0} visibleFrom="sm">
-                        <Anchor c='taupe' href="/" className={classes.link}>
+                        <a href="/" className={`${classes.link} ${isActive('/') ? classes.active : ''}`}>
                             Home
-                        </Anchor>
-                        <Anchor c='taupe' href="teas" className={classes.link}>
+                        </a>
+                        <a href="/teas" className={`${classes.link} ${isActive('/teas') ? classes.active : ''}`}>
                             Teas
-                        </Anchor>
-                        <Anchor c='taupe' href="about" className={classes.link}>
+                        </a>
+                        <a href="/about" className={`${classes.link} ${isActive('/about') ? classes.active : ''}`}>
                             About Us
-                        </Anchor>
+                        </a>
                     </Group>
 
                     <Group visibleFrom="sm">
@@ -61,20 +62,16 @@ export function Header() {
             >
                 <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
                     <Divider my="sm" />
-
-                    <Anchor c='taupe' href="/" className={classes.link}>
+                    <a href="/" className={`${classes.link} ${isActive('/') ? classes.active : ''}`}>
                         Home
-                    </Anchor>
-
-                    <Anchor c='taupe' href="teas" className={classes.link}>
+                    </a>
+                    <a href="/teas" className={`${classes.link} ${isActive('/teas') ? classes.active : ''}`}>
                         Teas
-                    </Anchor>
-                    <Anchor c='taupe' href="about" className={classes.link}>
+                    </a>
+                    <a href="/about" className={`${classes.link} ${isActive('/about') ? classes.active : ''}`}>
                         About Us
-                    </Anchor>
-
+                    </a>
                     <Divider my="sm" />
-
                     <Group justify="center" grow pb="xl" px="md">
                         <Button variant="default">Log in</Button>
                         <Button>Sign up</Button>
@@ -84,7 +81,3 @@ export function Header() {
         </Box>
     );
 }
-
-
-
-

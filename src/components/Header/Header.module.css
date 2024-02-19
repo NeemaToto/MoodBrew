@@ -17,3 +17,10 @@
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
   }
 }
+
+.link.active {
+  font-weight: bold;
+  color: var(--sage);
+  text-decoration: underline;
+
+}
