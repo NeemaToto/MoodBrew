@@ -28,6 +28,7 @@ export default function Tea() {
                 </Title>
             </Stack>
 
+            {/*Not fully responsive yet*/}
             <Group
                 gap={10}
                 w='100%'
