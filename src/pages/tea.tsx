@@ -55,7 +55,7 @@ export default function Tea({
                         <StepNumber stepNumber="1" text={`Steep tea for ${steepTime}`} />
                         <StepNumber stepNumber="2" text={`Enjoy`} />
                     </Stack>
-                    <Image src={teaImage} alt={`Picture of ${teaName}`} />
+                    <Image src='https://as2.ftcdn.net/v2/jpg/02/15/03/19/1000_F_215031964_uRkVl7TnIyDO5TbIypgLQoam2ALASxSD.jpg' width={600} height={600} alt={`Picture of ${teaName}`} />
                 </Group>
 
             </Stack>
