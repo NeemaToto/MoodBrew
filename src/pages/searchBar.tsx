@@ -24,7 +24,6 @@ import {
           styles={{ section: { pointerEvents: 'none' } }}
           mb="sm"
         />
-
       </div>
     );
   }
