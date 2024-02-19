@@ -43,9 +43,6 @@ const teamMembers = [
 ];
 
 export default function About() {
-  const firstRowMembers = teamMembers.slice(0, 3);
-  const secondRowMembers = teamMembers.slice(3);
-
   return (
     <main className={classes.main}>
       <Stack align="center" className={classes.stack}>
@@ -58,22 +55,10 @@ export default function About() {
         <Text component="p" className={classes.description} style={{ marginBottom: '4rem' }}>
           We are a small team of tea enthusiasts who believe that tea is more than just a drink; it's a way of life. Our mission is to help people discover the healing properties of tea and provide them with the knowledge they need to brew the perfect cup.
         </Text>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-          {firstRowMembers.map((member, index) => (
+        <div className={classes.profileGrid}>
+          {teamMembers.map((member, index) => (
             <ProfileCard
               key={index}
-              name={member.name}
-              role={member.role}
-              image={member.image}
-              portfolioLink={member.portfolioLink}
-              linkedinLink={member.linkedinLink}
-            />
-          ))}
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem' }}>
-          {secondRowMembers.map((member, index) => (
-            <ProfileCard
-              key={index + 3}
               name={member.name}
               role={member.role}
               image={member.image}

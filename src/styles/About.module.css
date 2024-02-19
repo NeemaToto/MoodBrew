@@ -31,3 +31,18 @@
     text-align: center;
   }
   
+  .profileGrid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; 
+    margin-top: 2rem;
+    max-width: 55%;
+  }
+  
+  @media (max-width: 768px) {
+    .profileGrid {
+      flex-direction: column;
+      align-items: center; 
+    }
+  }

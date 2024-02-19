@@ -37,7 +37,7 @@ export default function FAQ() {
             <Title order={2} style={{ color: "var(--taupe)", fontWeight: 700 }}>
               Frequently asked
             </Title>
-            <Text size={isSmallScreen ? "md" : "md"} style={{ color: "var(--taupe)" }}>
+            <Text size={isSmallScreen ? "md" : "md"} style={{ color: "var(--taupe)", maxWidth: 700 }}>
               Explore our FAQs to learn more about how MoodBrew personalizes tea
               recommendations for your mood and health.
             </Text>
