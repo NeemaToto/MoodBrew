@@ -1,9 +1,11 @@
-import React from 'react'
-import { Button, Text, Title, Stack, rem } from '@mantine/core'
-import classes from '@/styles/Teas.module.css'
+import React, { useState } from 'react';
+import { Button, Text, Title, Stack, rem, TextInput } from '@mantine/core';
+import classes from '@/styles/Teas.module.css';
 import TeaCard from '@/components/teaCard';
 
 export default function Teas() {
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <main className={``}>
       <Stack gap="sm">
@@ -13,7 +15,13 @@ export default function Teas() {
         <Text c="taupe" size="lg">
           Use the search bar or navigate through our catalogue to find the perfect tea for your mood.
         </Text>
-        <TeaCard/>
+        <TextInput
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.currentTarget.value)}
+          placeholder="Search teas..."
+          style={{ marginBottom: '1rem' }}
+        />
+        <TeaCard searchTerm={searchTerm} />
       </Stack>
     </main>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, TextInput } from '@mantine/core';
 import styles from './teaCard.module.css'
 
 type Tea = {
@@ -13,14 +13,17 @@ type Tea = {
   caffeineLevel: string;
 };
 
-export default function TeaCard() {
+interface TeaCardProps {
+  searchTerm: string;
+}
+
+export default function TeaCard({ searchTerm }: TeaCardProps) {
   const [teaData, setTeaData] = useState<Tea[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get<Tea[]>('https://raw.githubusercontent.com/NeemaToto/NeemaToto.github.io/main/data/tea.json');
-        console.log(response.data)
         setTeaData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -30,10 +33,23 @@ export default function TeaCard() {
     fetchData();
   }, []);
 
+  const filteredTeas = teaData.filter(tea => {
+    return (
+      tea.teaName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.origin.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.benefit.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.flavor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.caffeineLevel.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   return (
     <>
       <main className={styles.grid}>
-        {teaData.map((tea, index) => (
+
+
+        {filteredTeas.map((tea, index) => (
           <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
               <Image
