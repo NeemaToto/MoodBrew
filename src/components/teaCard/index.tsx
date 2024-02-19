@@ -1,27 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { Card, Image, Text, Badge, Button, Group, TextInput } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, Pagination } from '@mantine/core';
 import styles from './teaCard.module.css'
-
-type Tea = {
-  teaName: string;
-  type: string;
-  steepTime: string;
-  origin: string;
-  benefit: string;
-  flavor: string;
-  caffeineLevel: string;
-};
-
-interface TeaCardProps {
-  searchTerm: string;
-}
 
 export default function TeaCard({ searchTerm }: TeaCardProps) {
   const [teaData, setTeaData] = useState<Tea[]>([]);
-
   const router = useRouter();
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage:number = 9;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +20,6 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -54,10 +41,16 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
     });
   };
 
+  const indexOfLastItem:number = currentPage * itemsPerPage;
+  const indexOfFirstItem:number = indexOfLastItem - itemsPerPage;
+  const currentTeas:Tea[] = filteredTeas.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages:number = Math.ceil(filteredTeas.length / itemsPerPage);
+
+
   return (
     <>
       <main className={styles.grid}>
-        {filteredTeas.map((tea, index) => (
+        {currentTeas.map((tea, index) => (
           <Card key={index} shadow="sm" padding="lg" radius="md" withBorder onClick={() => handleTeaClick(tea)} style={{cursor: 'pointer'}}>
             <Card.Section>
               <Image
@@ -81,6 +74,12 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
             </Button>
           </Card>
         ))}
+        <Pagination
+        total={totalPages}
+        value={currentPage}
+        onChange={setCurrentPage}
+        style={{userSelect: 'none'}}
+      />
       </main>
     </>
   );
