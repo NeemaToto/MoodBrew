@@ -7,7 +7,7 @@ export default function StepNumber({
 }) {
 
     return (
-        <Group>
+        <Group align="center">
             <Flex
                 bg='sage'
                 p={10}

@@ -1,8 +1,7 @@
-import TeaCard from "@/components/teaCard";
-import { Flex, Group, Stack, Title, Text } from "@mantine/core";
-import Image from 'next/image'
-import { IconNumber1 } from '@tabler/icons-react';
+import { Flex, Group, Stack, Title, Text, Container, BackgroundImage } from "@mantine/core";
 import StepNumber from "@/components/StepNumber";
+import TeaInfo from "@/components/TeaInfo";
+import Image from 'next/image'
 
 export default function Tea({
     teaName = 'Early Grey Tea',
@@ -10,55 +9,68 @@ export default function Tea({
     steepTime = '3 min',
     origin = 'England',
     benefit = 'soothing',
-    flavor = '',
+    flavor = 'earthy',
     caffeineLevel = 'High',
     teaImage = ''
 }) {
 
     return (
-        <main>
+        <Stack
+            justify="center"
+            align="center"
+            gap={150}
+           
+        >
             <Stack
                 justify="center"
                 align="center"
-                gap={24}
+                gap={20}
             >
+                <Title c='taupe' order={1} ta='center'>
+                    {teaName}
+                </Title>
+                <Title c='taupe' order={4} ta='center'>
+                    Originally from {origin}, this {type} tea has <br /> {benefit} properties.
+                </Title>
+            </Stack>
 
+            <Group
+                gap={10}
+                w='100%'
+                style={{ flexGrow: 'grow', borderRadius: '12px'}}
+                justify="space-between"
+                bg='dun.1'
+            >
                 <Stack
+                    gap={40}
+                    h={494}
                     justify="center"
-                    align="center"
-                    gap={20}
+                    pl={30}
+
                 >
-                    <Title c='taupe' order={1}>
-                        {teaName}
+                    <Title order={2}>
+                        Instructions
                     </Title>
-                    <Title c='taupe' order={4}>
-                        Originally from {origin}, this {type} tea has {benefit} properties.
-                    </Title>
+                    <StepNumber stepNumber="1" text={`Steep tea for ${steepTime}`} />
+                    <StepNumber stepNumber="2" text={`Enjoy`} />
                 </Stack>
 
-                <Group
-              
-                w='100%'
-              
-                >
-                    <Stack
-                        gap={40}
-                        bg='dun.1'
-                        w='40%'
-                        h={494}
-                        justify="center"
-                        px={52}
-                    >
-                        <Title order={2}>
-                            Instructions
-                        </Title>
-                        <StepNumber stepNumber="1" text={`Steep tea for ${steepTime}`} />
-                        <StepNumber stepNumber="2" text={`Enjoy`} />
-                    </Stack>
-                    <Image src='https://as2.ftcdn.net/v2/jpg/02/15/03/19/1000_F_215031964_uRkVl7TnIyDO5TbIypgLQoam2ALASxSD.jpg' width={600} height={600} alt={`Picture of ${teaName}`} />
-                </Group>
+                <Image src='https://assets.catawiki.nl/assets/2017/1/4/2/a/e/2aec93cc-d282-11e6-8b8d-2074d42eaa65.jpg' layout="repsonsive" width={1000} height={1000} alt="picture"  style={{borderRadius: '12px'}} />
+            </Group>
 
+            <Stack justify="center" align="center" gap={100} pb={100}>
+                <Title order={2}>
+                    Information
+                </Title>
+                <Group justify="space-evenly" align="center" gap={30} w='80vw'>
+                    <TeaInfo icon='/icons/caffeineIcon.svg' title='Caffeine Level' text={caffeineLevel} />
+                    <TeaInfo icon='/icons/typeOfTeaIcon.svg' title='Type of Tea' text={type} />
+                    <TeaInfo icon='/icons/flavorIcon.svg' title='Flavor' text={flavor} />
+                    <TeaInfo icon='/icons/benefitIcon.svg' title='Benefit' text={benefit} />
+                </Group>
             </Stack>
-        </main>
+
+            {/*insert reviews here*/}
+        </Stack>
     )
 }
