@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { IconPlus, IconMinus, IconMug, IconTeapot, IconUserQuestion, IconDatabaseSearch } from '@tabler/icons-react';
+import { IconMug, IconTeapot, IconUserQuestion, IconDatabaseSearch } from '@tabler/icons-react';
 import { Accordion, Flex, rem, Stack, Title, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import classes from './FAQ.module.css';
 
 export default function FAQ() {
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
-  const [openedItem, setOpenedItem] = useState('');
+  // const [openedItem, setOpenedItem] = useState('');
 
-  const handleToggle = (value) => {
-    setOpenedItem(openedItem === value ? '' : value);
-  };
+  // const handleToggle = (value) => {
+  //   setOpenedItem(openedItem === value ? '' : value);
+  // };
 
-  const renderIcon = (item) => openedItem === item ? <IconMinus style={{ color: "var(--taupe)" }} /> : <IconPlus style={{ color: "var(--taupe)" }} />;
+  // const renderIcon = (item) => openedItem === item ? <IconMinus style={{ color: "var(--taupe)" }} /> : <IconPlus style={{ color: "var(--taupe)" }} />;
 
   return (
     <div className={classes.faq}>
@@ -52,7 +52,7 @@ export default function FAQ() {
               <Accordion.Item value="what" style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={<IconMug style={{ color: "var(--taupe)", width: rem(20), height: rem(20) }} />}
-                  rightSection={renderIcon("what")}
+                  // rightSection={renderIcon("what")}
                 >
                   <Text style={{ fontWeight: 700, color: "var(--taupe)" }} pr="md">
                     What Is MoodBrew?
@@ -74,7 +74,7 @@ export default function FAQ() {
               <Accordion.Item value="recommend" style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={<IconTeapot style={{ color: "var(--taupe)", width: rem(20), height: rem(20) }} />}
-                  rightSection={renderIcon("recommend")}
+                  // rightSection={renderIcon("recommend")}
                 >
                   <Text style={{ fontWeight: 700, color: "var(--taupe)" }} pr="md">
                     What Should I Do If I Don’t Like A Tea Recommended By
@@ -104,7 +104,7 @@ export default function FAQ() {
               <Accordion.Item value="how" style={{ borderBottom: '1px solid var(--taupe)' }}>
                 <Accordion.Control
                   icon={<IconDatabaseSearch style={{ color: "var(--taupe)", width: rem(20), height: rem(20) }} />}
-                  rightSection={renderIcon("how")}
+                  // rightSection={renderIcon("how")}
                 ><Text style={{ fontWeight: 700, color: "var(--taupe)" }} pr="md">
                 How Does MoodBrew Work?
               </Text>
@@ -128,7 +128,7 @@ export default function FAQ() {
           <Accordion.Item value="quality" style={{ borderBottom: '1px solid var(--taupe)' }}>
             <Accordion.Control
               icon={<IconUserQuestion style={{ color: "var(--taupe)", width: rem(20), height: rem(20) }} />}
-              rightSection={renderIcon("quality")}
+              // rightSection={renderIcon("quality")}
             >
               <Text style={{ fontWeight: 700, color: "var(--taupe)" }} pr="md">
                 How Do We Ensure the Quality and Safety of the Teas

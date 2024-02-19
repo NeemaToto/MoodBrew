@@ -9,7 +9,7 @@ import {
   
 
   
-  export function NavbarSearch() {
+  export default function NavbarSearch() {
   
   
     return (

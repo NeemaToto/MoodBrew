@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Text, Title, Stack, rem, TextInput } from '@mantine/core';
-import classes from '@/styles/Teas.module.css';
+import { Text, Title, Stack, TextInput } from '@mantine/core';
 import TeaCard from '@/components/teaCard';
 
 export default function Teas() {

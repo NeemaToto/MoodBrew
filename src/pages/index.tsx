@@ -3,7 +3,7 @@ import FAQ from '@/components/FAQ'
 import TeaCard from '@/components/teaCard'
 import Image from 'next/image'
 import classes from '@/styles/Home.module.css'
-import { NavbarSearch } from './searchBar'
+import  NavbarSearch  from './searchBar'
 
 export default function Home() {
   return (
