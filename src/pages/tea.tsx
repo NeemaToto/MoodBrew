@@ -1,25 +1,19 @@
-import { Flex, Group, Stack, Title, Text, Container, BackgroundImage } from "@mantine/core";
+import { Group, Stack, Title} from "@mantine/core";
 import StepNumber from "@/components/StepNumber";
 import TeaInfo from "@/components/TeaInfo";
 import Image from 'next/image'
+import { useRouter } from "next/router";
 
-export default function Tea({
-    teaName = 'Early Grey Tea',
-    type = 'black',
-    steepTime = '3 min',
-    origin = 'England',
-    benefit = 'soothing',
-    flavor = 'earthy',
-    caffeineLevel = 'High',
-    teaImage = ''
-}) {
+export default function Tea() {
 
+    const router = useRouter();
+    const { teaName, type, steepTime, origin, benefit, flavor, caffeineLevel, teaImage } = router.query;
+  
     return (
         <Stack
             justify="center"
             align="center"
             gap={150}
-           
         >
             <Stack
                 justify="center"
@@ -46,7 +40,6 @@ export default function Tea({
                     h={494}
                     justify="center"
                     pl={30}
-
                 >
                     <Title order={2}>
                         Instructions
@@ -54,7 +47,6 @@ export default function Tea({
                     <StepNumber stepNumber="1" text={`Steep tea for ${steepTime}`} />
                     <StepNumber stepNumber="2" text={`Enjoy`} />
                 </Stack>
-
                 <Image src='https://assets.catawiki.nl/assets/2017/1/4/2/a/e/2aec93cc-d282-11e6-8b8d-2074d42eaa65.jpg' layout="repsonsive" width={1000} height={1000} alt="picture"  style={{borderRadius: '12px'}} />
             </Group>
 
@@ -63,10 +55,10 @@ export default function Tea({
                     Information
                 </Title>
                 <Group justify="space-evenly" align="center" gap={30} w='80vw'>
-                    <TeaInfo icon='/icons/caffeineIcon.svg' title='Caffeine Level' text={caffeineLevel} />
-                    <TeaInfo icon='/icons/typeOfTeaIcon.svg' title='Type of Tea' text={type} />
-                    <TeaInfo icon='/icons/flavorIcon.svg' title='Flavor' text={flavor} />
-                    <TeaInfo icon='/icons/benefitIcon.svg' title='Benefit' text={benefit} />
+                    <TeaInfo icon='/icons/caffeineIcon.svg' title='Caffeine Level' text={caffeineLevel?.toString()} />
+                    <TeaInfo icon='/icons/typeOfTeaIcon.svg' title='Type of Tea' text={type?.toString()} />
+                    <TeaInfo icon='/icons/flavorIcon.svg' title='Flavor' text={flavor?.toString()} />
+                    <TeaInfo icon='/icons/benefitIcon.svg' title='Benefit' text={benefit?.toString()} />
                 </Group>
             </Stack>
 

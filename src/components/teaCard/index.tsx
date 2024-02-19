@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import { Card, Image, Text, Badge, Button, Group, TextInput } from '@mantine/core';
 import styles from './teaCard.module.css'
@@ -19,6 +20,8 @@ interface TeaCardProps {
 
 export default function TeaCard({ searchTerm }: TeaCardProps) {
   const [teaData, setTeaData] = useState<Tea[]>([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,11 +47,18 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
     );
   });
 
+  const handleTeaClick = (tea: Tea) => {
+    router.push({
+      pathname: '/tea',
+      query: { ...tea },
+    });
+  };
+
   return (
     <>
       <main className={styles.grid}>
         {filteredTeas.map((tea, index) => (
-          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
+          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder onClick={() => handleTeaClick(tea)} style={{cursor: 'pointer'}}>
             <Card.Section>
               <Image
                 src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
