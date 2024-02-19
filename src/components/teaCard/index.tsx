@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import styles from './teaCard.module.css'
 
 type Tea = {
   teaName: string;
@@ -31,30 +32,32 @@ export default function TeaCard() {
 
   return (
     <>
-      {teaData.map((tea, index) => (
-        <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
-          <Card.Section>
-            <Image
-              src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
-              height={160}
-              alt="Tea Image"
-            />
-          </Card.Section>
+      <main className={styles.grid}>
+        {teaData.map((tea, index) => (
+          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
+            <Card.Section>
+              <Image
+                src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
+                height={160}
+                alt="Tea Image"
+              />
+            </Card.Section>
 
-          <Group justify="space-between" mt="md" mb="xs">
-            <Text fw={500}>{tea.teaName}</Text>
-            <Badge color="taupe">{tea.benefit}</Badge>
-          </Group>
+            <Group justify="space-between" mt="md" mb="xs">
+              <Text fw={500}>{tea.teaName}</Text>
+              <Badge color="taupe">{tea.benefit}</Badge>
+            </Group>
 
-          <Text size="sm" c="dimmed">
-            {`This tea is a ${tea.type} tea which takes ${tea.steepTime} to steep. The tea is originated from ${tea.origin} and has a ${tea.flavor} flavour with a ${tea.caffeineLevel} caffeine level.`}
-          </Text>
+            <Text size="sm" c="dimmed">
+              {`This tea is a ${tea.type} tea which takes ${tea.steepTime} to steep. The tea is originated from ${tea.origin} and has a ${tea.flavor} flavour with a ${tea.caffeineLevel} caffeine level.`}
+            </Text>
 
-          <Button color="sage" fullWidth mt="md" radius="md">
-            View
-          </Button>
-        </Card>
-      ))}
+            <Button color="sage" fullWidth mt="md" radius="md">
+              View
+            </Button>
+          </Card>
+        ))}
+      </main>
     </>
   );
 }
