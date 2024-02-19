@@ -21,19 +21,19 @@ const theme = createTheme({
   headings: {
     sizes: {
       h1: {
-        fontSize: '3.56rem',
-        fontWeight: '700',
+        fontSize: '4rem',
+        fontWeight: '900',
       },
       h2: {
-        fontSize: '2.33rem',
+        fontSize: '2.625rem',
         fontWeight: '500',
       },
       h3: {
-        fontSize: '2rem',
+        fontSize: '2.25rem',
         fontWeight: '500',
       },
       h4: {
-        fontSize: '1.33rem',
+        fontSize: '1.5rem',
         fontWeight: '500',
       },
 
