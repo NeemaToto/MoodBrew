@@ -1,0 +1,33 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--seasalt); 
+    color: var(--taupe); 
+  }
+  
+  .stack {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .subtitle {
+    font-size: 1rem; 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    text-align: center;
+  }
+  
+  .description {
+    font-size: 1rem; 
+    line-height: 1.5; 
+    max-width: 40%;
+    text-align: center;
+  }
+  

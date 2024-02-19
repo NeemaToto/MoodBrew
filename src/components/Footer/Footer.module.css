@@ -2,9 +2,16 @@
     background-color: var(--isabelline);
     padding-top: 72px;
     padding-bottom: 32px;
+    font-size: 14px;
     .border{
         padding-top: 2rem;
         border-top: 1px solid var(--sage);
         text-align: center;
     }
 }
+
+.activeLink {
+    color: var(--sage) !important;
+    font-weight: 700;
+    text-decoration: underline;
+  }

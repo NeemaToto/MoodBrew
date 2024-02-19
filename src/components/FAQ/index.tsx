@@ -34,7 +34,7 @@ export default function FAQ() {
             Support
           </Text>
           <Stack>
-            <Title order={2} style={{ color: "var(--taupe)", fontWeight: 800 }}>
+            <Title order={2} style={{ color: "var(--taupe)", fontWeight: 700 }}>
               Frequently asked
             </Title>
             <Text size={isSmallScreen ? "md" : "md"} style={{ color: "var(--taupe)" }}>

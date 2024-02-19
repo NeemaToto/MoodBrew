@@ -11,3 +11,16 @@ type Tea = {
   interface TeaCardProps {
     searchTerm: string;
   }
+
+  interface IconWrapperProps {
+    children: React.ReactNode;
+    href: string;
+  }
+  
+  interface ProfileCardProps {
+    name: string;
+    role: string;
+    image: string;
+    portfolioLink: string;
+    linkedinLink: string;
+  }

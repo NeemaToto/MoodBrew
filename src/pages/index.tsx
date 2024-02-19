@@ -17,9 +17,6 @@ export default function Home() {
             Explore Over 100 Unique Tea Suggestions Tailored for Health and Mood.
           </Text>
         </div>
-        <div>
-          {/* <img src="/Ellipse 1.jpg"/> */}
-        </div>
       </Stack>
       <div>
         <div className=''>
@@ -31,7 +28,6 @@ export default function Home() {
 
   )
 }
-
 
 /*        <TeaCard/>
         <Button size='sm' color='sage'>Button</Button>

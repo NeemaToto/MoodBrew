@@ -1,8 +1,15 @@
-import React from 'react'
-import classes from './Footer.module.css'
-import { Anchor, Avatar, Title, Group, Flex, Box } from '@mantine/core';
+import React from 'react';
+import { useRouter } from 'next/router'; 
+import { Avatar, Title, Group, Flex } from '@mantine/core';
+import classes from './Footer.module.css';
+
+const isActiveLink = (href: string, pathname: string): boolean => {
+  return pathname === href;
+};
 
 export default function Footer() {
+  const router = useRouter(); 
+
   return (
     <footer className={classes.footer}>
       <Flex
@@ -10,35 +17,29 @@ export default function Footer() {
           align="center"
           direction="column"
           wrap="wrap"
-          pb={72}
-          gap={32}>
-        <Anchor href="/" style={{ textDecoration: "none" }}>
-          <Group >
+          style={{ paddingBottom: '72px', gap: '32px' }}>
+        <a href="/" style={{ textDecoration: "none" }}>
+          <Group>
             <Avatar src="/logo/MoodBrewLogo.svg" size="lg" />
-            <Title order={4} fw={800} c="taupe">
+            <Title order={4} style={{ fontWeight: 800, color: 'var(--taupe)' }}>
               Mood Brew
             </Title>
           </Group>
-        </Anchor>
+        </a>
         <Group
-          mih={50}
-          gap="md"
-          justify="center"
-          align="center"
-          wrap="wrap"
-        >
-          <Anchor c="taupe" href="/" className={classes.link}>
+          style={{ minHeight: '50px', gap: 'md', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+          <a href="/" className={isActiveLink('/', router.pathname) ? classes.activeLink : classes.link}>
             Home
-          </Anchor>
-          <Anchor c="taupe" href="teas" className={classes.link}>
+          </a>
+          <a href="/teas" className={isActiveLink('/teas', router.pathname) ? classes.activeLink : classes.link}>
             Teas
-          </Anchor>
-          <Anchor c="taupe" href="about" className={classes.link}>
+          </a>
+          <a href="/about" className={isActiveLink('/about', router.pathname) ? classes.activeLink : classes.link}>
             About Us
-          </Anchor>
+          </a>
         </Group>
       </Flex>
-        <p className={classes.border}>© MoodBrew</p>
+      <p className={`${classes.border} ${classes.footerText}`}>© MoodBrew</p>
     </footer>
   );
 }
