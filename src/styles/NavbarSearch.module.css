@@ -1,0 +1,59 @@
+
+
+
+
+.searchCode {
+    font-weight: 700;
+    font-size: rem(10px);
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+    border: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
+}
+
+.searchCode img {
+    width: 100%;
+}
+
+.mainLinks {
+    padding-left: calc(var(--mantine-spacing-md) - var(--mantine-spacing-xs));
+    padding-right: calc(var(--mantine-spacing-md) - var(--mantine-spacing-xs));
+    padding-bottom: var(--mantine-spacing-md);
+}
+
+
+
+.mainLinkInner {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.mainLinkIcon {
+    margin-right: var(--mantine-spacing-sm);
+    color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-2));
+}
+
+.mainLinkBadge {
+    padding: 0;
+    width: rem(20px);
+    height: rem(20px);
+    pointer-events: none;
+}
+
+
+.input input {
+    padding: 2rem;
+    border-radius: 19px;
+}
+
+.bghome div div {
+    width: 30%;
+}
+
+
+
+.bghome {
+    background-image: url('/Rectangle 48.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65vh;
+}
