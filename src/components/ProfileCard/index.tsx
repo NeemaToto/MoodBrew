@@ -31,6 +31,7 @@ export default function ProfileCard({ name, role, image, portfolioLink, linkedin
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
         border: '1px solid rgba(63, 57, 53, 0.25)',
       }}
     >
