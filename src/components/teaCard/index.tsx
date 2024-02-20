@@ -1,26 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, Image, Text, Badge, Button, Group, TextInput } from '@mantine/core';
+import { useRouter } from 'next/router';
+import { Card, Image, Text, Badge, Button, Group, Pagination } from '@mantine/core';
 import styles from './teaCard.module.css'
 
-type Tea = {
-  teaName: string;
-  type: string;
-  steepTime: string;
-  origin: string;
-  benefit: string;
-  flavor: string;
-  caffeineLevel: string;
-  imageLink?: string;
-};
-
-interface TeaCardProps {
-  searchTerm: string;
-}
-
-
 export default function TeaCard({ searchTerm }: TeaCardProps) {
+  const router = useRouter();
   const [teaData, setTeaData] = useState<Tea[]>([]);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage:number = 9;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,11 +37,23 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
 
   const defaultImageLink = "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png";
 
+  const handleTeaClick = (tea: Tea) => {
+    router.push({
+      pathname: '/tea',
+      query: { ...tea },
+    });
+  };
+
+  const indexOfLastItem:number = currentPage * itemsPerPage;
+  const indexOfFirstItem:number = indexOfLastItem - itemsPerPage;
+  const currentTeas:Tea[] = filteredTeas.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages:number = Math.ceil(filteredTeas.length / itemsPerPage);
+
   return (
     <>
       <main className={styles.grid}>
-        {filteredTeas.map((tea, index) => (
-          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
+        {currentTeas.map((tea, index) => (
+          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder onClick={() => handleTeaClick(tea)} style={{cursor: 'pointer'}}>
             <Card.Section>
               <Image
                 src={tea.imageLink || defaultImageLink}
@@ -77,6 +78,14 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
             </Button>
           </Card>
         ))}
+
+
+<Pagination
+        total={totalPages}
+        value={currentPage}
+        onChange={setCurrentPage}
+        style={{userSelect: 'none'}}
+      />
       </main>
     </>
   );

@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 export default function Tea() {
 
     const router = useRouter();
-    const { teaName, type, steepTime, origin, benefit, flavor, caffeineLevel, teaImage } = router.query;
+    const { teaName, type, steepTime, origin, benefit, flavor, caffeineLevel, imageLink } = router.query;
   
     return (
         <Stack
@@ -33,7 +33,7 @@ export default function Tea() {
                 gap={10}
                 w='100%'
                 style={{ flexGrow: 'grow', borderRadius: '12px'}}
-                justify="space-between"
+                justify="space-around"
                 bg='dun.1'
             >
                 <Stack
@@ -48,7 +48,7 @@ export default function Tea() {
                     <StepNumber stepNumber="1" text={`Steep tea for ${steepTime}`} />
                     <StepNumber stepNumber="2" text={`Enjoy`} />
                 </Stack>
-                <Image src='https://assets.catawiki.nl/assets/2017/1/4/2/a/e/2aec93cc-d282-11e6-8b8d-2074d42eaa65.jpg' layout="repsonsive" width={1000} height={1000} alt="picture"  style={{borderRadius: '12px'}} />
+                <Image src={imageLink as string} layout="repsonsive" width={700} height={700} alt="picture"  style={{borderRadius: '12px'}} />
             </Group>
 
             <Stack justify="center" align="center" gap={100} pb={100}>
