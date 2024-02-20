@@ -1,0 +1,11 @@
+.indicator {
+    width: 12px;
+    height: 4px;
+    transition: width 250ms ease;
+    background-color: rgba(63, 57, 53, 1);
+}
+
+.indicator[data-active="true"] {
+    width: 40px;
+}
+
