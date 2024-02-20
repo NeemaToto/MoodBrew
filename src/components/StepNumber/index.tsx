@@ -1,4 +1,4 @@
-import { Flex, Group, Text } from "@mantine/core";
+import { Flex, Text } from "@mantine/core";
 import { useMediaQuery } from '@mantine/hooks';
 
 
