@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import axios from 'axios';
-import { Card, Image, Text, Badge, Button, Group, Pagination } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, TextInput } from '@mantine/core';
 import styles from './teaCard.module.css'
+
+type Tea = {
+  teaName: string;
+  type: string;
+  steepTime: string;
+  origin: string;
+  benefit: string;
+  flavor: string;
+  caffeineLevel: string;
+  imageLink?: string;
+};
+
+interface TeaCardProps {
+  searchTerm: string;
+}
+
 
 export default function TeaCard({ searchTerm }: TeaCardProps) {
   const [teaData, setTeaData] = useState<Tea[]>([]);
-  const router = useRouter();
-
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage:number = 9;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +31,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
         console.error('Error fetching data:', error);
       }
     };
+
     fetchData();
   }, []);
 
@@ -34,35 +46,26 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
     );
   });
 
-  const handleTeaClick = (tea: Tea) => {
-    router.push({
-      pathname: '/tea',
-      query: { ...tea },
-    });
-  };
-
-  const indexOfLastItem:number = currentPage * itemsPerPage;
-  const indexOfFirstItem:number = indexOfLastItem - itemsPerPage;
-  const currentTeas:Tea[] = filteredTeas.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages:number = Math.ceil(filteredTeas.length / itemsPerPage);
-
+  const defaultImageLink = "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png";
 
   return (
     <>
       <main className={styles.grid}>
-        {currentTeas.map((tea, index) => (
-          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder onClick={() => handleTeaClick(tea)} style={{cursor: 'pointer'}}>
+        {filteredTeas.map((tea, index) => (
+          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section>
               <Image
-                src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
-                height={160}
+                src={tea.imageLink || defaultImageLink}
+                width={400} 
+                height={400} 
+                style={{ maxWidth: 'none', height: '400px' }}
                 alt="Tea Image"
               />
             </Card.Section>
 
             <Group justify="space-between" mt="md" mb="xs">
               <Text fw={500}>{tea.teaName}</Text>
-              <Badge color="taupe">Benefit For: {tea.benefit}</Badge>
+              <Badge color="taupe">Benefit For:  {tea.benefit}</Badge>
             </Group>
 
             <Text size="sm" c="dimmed">
@@ -74,12 +77,6 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
             </Button>
           </Card>
         ))}
-        <Pagination
-        total={totalPages}
-        value={currentPage}
-        onChange={setCurrentPage}
-        style={{userSelect: 'none'}}
-      />
       </main>
     </>
   );
