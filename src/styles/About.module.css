@@ -1,48 +1,56 @@
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--seasalt); 
-    color: var(--taupe); 
-  }
-  
-  .stack {
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .subtitle {
-    font-size: 1rem; 
-    text-transform: uppercase; 
-    font-weight: 700; 
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 2.5rem; 
-    font-weight: 700; 
-    text-align: center;
-  }
-  
-  .description {
-    font-size: 1rem; 
-    line-height: 1.5; 
-    max-width: 40%;
-    text-align: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--seasalt);
+  color: var(--taupe);
+}
+
+.stack {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 40%;
+  text-align: center;
+}
+
+.profileGrid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  max-width: 55%;
+}
+
+@media (max-width: 768px) {
   .profileGrid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap; 
-    margin-top: 2rem;
-    max-width: 55%;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%; 
+    text-align: center;
   }
-  
-  @media (max-width: 768px) {
-    .profileGrid {
-      flex-direction: column;
-      align-items: center; 
-    }
+  .description {
+    max-width: 100%;
   }
+}
