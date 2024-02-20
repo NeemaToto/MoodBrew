@@ -1,10 +1,14 @@
-import { Group, Stack, Title} from "@mantine/core";
+import { Group, Stack, Title, rem} from "@mantine/core";
 import StepNumber from "@/components/StepNumber";
 import TeaInfo from "@/components/TeaInfo";
 import Image from 'next/image'
 import { useRouter } from "next/router";
+import { useMediaQuery } from '@mantine/hooks';
 
 export default function Tea() {
+  const isMediumScreen = useMediaQuery('(max-width: 1307px)');
+  const isSmallScreen = useMediaQuery('(max-width: 500px)');
+
 
     const router = useRouter();
     const { teaName, type, steepTime, origin, benefit, flavor, caffeineLevel, imageLink } = router.query;
@@ -33,14 +37,16 @@ export default function Tea() {
                 gap={10}
                 w='100%'
                 style={{ flexGrow: 'grow', borderRadius: '12px'}}
-                justify="space-around"
+                justify={isMediumScreen ? 'space-around' : 'space-between'}
                 bg='dun.1'
             >
                 <Stack
                     gap={40}
                     h={494}
                     justify="center"
-                    pl={30}
+                    ta={isSmallScreen ? "center" : 'start'}
+                  
+                    p={isSmallScreen ? 40 : 40}
                 >
                     <Title order={2}>
                         Instructions
@@ -48,7 +54,7 @@ export default function Tea() {
                     <StepNumber stepNumber="1" text={`Steep tea for ${steepTime}`} />
                     <StepNumber stepNumber="2" text={`Enjoy`} />
                 </Stack>
-                <Image src={imageLink as string} layout="repsonsive" width={700} height={700} alt="picture"  style={{borderRadius: '12px'}} />
+                <Image src={imageLink as string} layout="repsonsive" width={800} height={800} alt="picture"  style={{borderRadius: '12px'}} />
             </Group>
 
             <Stack justify="center" align="center" gap={100} pb={100}>

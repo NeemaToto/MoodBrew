@@ -1,13 +1,15 @@
 import { Flex, Group, Text } from "@mantine/core";
+import { useMediaQuery } from '@mantine/hooks';
 
 
 export default function StepNumber({
     stepNumber = '',
     text = ''
 }) {
+    const isSmallScreen = useMediaQuery('(max-width: 500px)');
 
     return (
-        <Group align="center">
+        <Flex gap={10} align="center" justify={isSmallScreen ? 'center' : 'flex-start'} direction={isSmallScreen ? 'column' : 'row'}>
             <Flex
                 bg='sage'
                 p={10}
@@ -24,6 +26,6 @@ export default function StepNumber({
             <Text size="lg">
                 {text}.
             </Text>
-        </Group>
+        </Flex>
     )
 }
