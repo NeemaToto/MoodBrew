@@ -11,7 +11,7 @@ An app where you can get recommended tea's based on your mood or health.
 - Meelaud
 
 ## API's
-[Review API](https://reviewapi.com/)
+[API Ninja - Recipe API](https://api.api-ninjas.com/v1/recipe)
 [Tea API](https://github.com/NeemaToto/NeemaToto.github.io.git)
 
 ## Installations
