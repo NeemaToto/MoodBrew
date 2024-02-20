@@ -13,3 +13,5 @@ An app where you can get recommended tea's based on your mood or health.
 ## API's
 [Review API](https://reviewapi.com/)
 [Tea API](https://github.com/NeemaToto/NeemaToto.github.io.git)
+
+## Installations
