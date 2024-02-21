@@ -37,7 +37,7 @@ const teamMembers = [
     name: 'Patrick Hui',
     role: 'Product Designer',
     image: '/patrick-image.jpg',
-    portfolioLink: 'https://patrickportfolio.com',
+    portfolioLink: 'https://patrickhui.design',
     linkedinLink: 'https://www.linkedin.com/in/patrick-hui-design/'
   },
 ];

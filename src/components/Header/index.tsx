@@ -43,7 +43,9 @@ export function Header() {
                     </Group>
 
                     <Group visibleFrom="sm">
-                        <Button variant="transparent" color='taupe'>Sign up</Button>
+                        <a href="/signup">
+                            <Button variant="transparent" color='taupe' >Sign up</Button>
+                        </a>
                         <Button color='taupe'>Log in</Button>
                     </Group>
 
