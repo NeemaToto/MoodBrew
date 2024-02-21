@@ -66,7 +66,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
 
             <Group justify="space-between" mt="md" mb="xs">
               <Text fw={500}>{tea.teaName}</Text>
-              <Badge color="taupe">{tea.benefit}</Badge>
+              <Badge color="taupe">Benefit For:  {tea.benefit}</Badge>
             </Group>
 
             <Text size="sm" c="dimmed">
