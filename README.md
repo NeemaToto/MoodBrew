@@ -25,7 +25,7 @@ npm i axios
 ## Testing Methods Used
 1. describe() - Enhances readibility on code and describes what the testing is about.
 2. beforeEach() - Runs the code in the function before each individual test
-3. .visit() - Visit a remote URL
+3. visit() - Visit a remote URL
 4. it() - Defines an individual test
 5. get() - Locates an <a>, <img> , <h1>, <footer>, <header>
 6. should() - Checks to see if element ‘exists’
