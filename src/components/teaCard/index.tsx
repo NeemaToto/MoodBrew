@@ -9,7 +9,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
   const [teaData, setTeaData] = useState<Tea[]>([]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage:number = 9;
+  const itemsPerPage: number = 9;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,21 +44,22 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
     });
   };
 
-  const indexOfLastItem:number = currentPage * itemsPerPage;
-  const indexOfFirstItem:number = indexOfLastItem - itemsPerPage;
-  const currentTeas:Tea[] = filteredTeas.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages:number = Math.ceil(filteredTeas.length / itemsPerPage);
+  const indexOfLastItem: number = currentPage * itemsPerPage;
+  const indexOfFirstItem: number = indexOfLastItem - itemsPerPage;
+  const currentTeas: Tea[] = filteredTeas.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages: number = Math.ceil(filteredTeas.length / itemsPerPage);
 
   return (
     <>
-      <main className={styles.grid}>
+      <Group justify='center' align='center'>
+        <div className={styles.grid}>
         {currentTeas.map((tea, index) => (
-          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder onClick={() => handleTeaClick(tea)} style={{cursor: 'pointer'}}>
+          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder onClick={() => handleTeaClick(tea)} style={{ cursor: 'pointer' }}>
             <Card.Section>
               <Image
                 src={tea.imageLink || defaultImageLink}
-                width={400} 
-                height={400} 
+                width={400}
+                height={400}
                 style={{ maxWidth: 'none', height: '400px' }}
                 alt="Tea Image"
               />
@@ -78,15 +79,14 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
             </Button>
           </Card>
         ))}
-
-
-<Pagination
-        total={totalPages}
-        value={currentPage}
-        onChange={setCurrentPage}
-        style={{userSelect: 'none'}}
-      />
-      </main>
+        </div>
+        <Pagination
+          total={totalPages}
+          value={currentPage}
+          onChange={setCurrentPage}
+          style={{ userSelect: 'none' }}
+        />
+      </Group>
     </>
   );
 }
