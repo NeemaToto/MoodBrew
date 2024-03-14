@@ -4,6 +4,7 @@ import TeaInfo from "@/components/TeaInfo";
 import Image from 'next/image'
 import { useRouter } from "next/router";
 import { useMediaQuery } from '@mantine/hooks';
+import RecipeCarousel from "@/components/RecipeCarousel";
 
 export default function Tea() {
   const isMediumScreen = useMediaQuery('(max-width: 1307px)');
@@ -69,7 +70,10 @@ export default function Tea() {
                 </Group>
             </Stack>
 
-            {/*insert reviews here*/}
+            {/*recipe carousel still needs styling*/}
+            <Stack>
+                <RecipeCarousel/>
+            </Stack>
         </Stack>
     )
 }
