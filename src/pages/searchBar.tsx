@@ -1,29 +1,28 @@
 import {
-    TextInput,
-    Code,
-    rem,
-  } from '@mantine/core';
-  import { IconSearch } from '@tabler/icons-react';
-  import classes from '../styles/NavbarSearch.module.css';
-  
-  
+  TextInput,
+  Code,
+  rem,
+} from '@mantine/core';
+import { IconSearch } from '@tabler/icons-react';
+import classes from '../styles/NavbarSearch.module.css';
 
-  
-  export default function NavbarSearch() {
-  
-  
-    return (
-      <div className={classes.bghome}>
-        <TextInput
+
+
+
+export default function NavbarSearch() {
+
+
+  return (
+    <div className={classes.bghome}>
+      <TextInput
         className={classes.input}
-          placeholder="Search"
-          size="xl"
-          leftSection={<IconSearch style={{ width: rem(12), height: rem(12), marginLeft: rem(90) }} stroke={1.5} />}
-          rightSectionWidth={70}
-          rightSection={<Code className={classes.searchCode}><img src="/arrow.png" width={20} height={20}/></Code>}
-          styles={{ section: { pointerEvents: 'none' } }}
-          mb="sm"
-        />
-      </div>
-    );
-  }
+        placeholder="Search"
+        size="xl"
+        rightSectionWidth={70}
+        rightSection={<IconSearch style={{ width: rem(20), height: rem(20), marginLeft: rem(65) }} stroke={1.5} />}
+        styles={{ section: { pointerEvents: 'none' } }}
+        mb="sm"
+      />
+    </div>
+  );
+}
