@@ -1,13 +1,9 @@
 import {
   TextInput,
-  Code,
   rem,
 } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import classes from '../styles/NavbarSearch.module.css';
-
-
-
 
 export default function NavbarSearch() {
 

@@ -46,7 +46,9 @@ export function Header() {
                         <a href="/signup">
                             <Button variant="transparent" color='taupe' >Sign up</Button>
                         </a>
-                        <Button color='taupe'>Log in</Button>
+                        <a href="/login">
+                            <Button color='taupe'>Log in</Button>
+                        </a>
                     </Group>
 
                     <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

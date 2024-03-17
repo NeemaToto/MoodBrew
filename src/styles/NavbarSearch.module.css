@@ -58,3 +58,16 @@
     height: 65vh;
 }
 
+/* Tablet */
+@media only screen and (max-width: 768px) {
+    .bghome {
+       
+    }
+}
+
+/* Phone */
+@media only screen and (max-width: 480px) {
+    .bghome {
+
+    }
+}
