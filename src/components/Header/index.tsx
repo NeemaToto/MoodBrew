@@ -40,6 +40,9 @@ export function Header() {
                         <a href="/about" className={`${classes.link} ${isActive('/about') ? classes.active : ''}`}>
                             About Us
                         </a>
+                        <a href="/profile" className={`${classes.link} ${isActive('/about') ? classes.active : ''}`}>
+                            Profile
+                        </a>
                     </Group>
 
                     <Group visibleFrom="sm">
