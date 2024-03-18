@@ -34,9 +34,6 @@ export default function Profile() {
         <Title c="taupe" order={1} fw={800}>
           Your Teas
         </Title>
-        <Text c="taupe" size="lg">
-          Use the search bar to find a tea you're looking for.
-        </Text>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
           {savedTeas.map((teaName: string, index: number) => {
             const tea = teaData.find(tea => tea.teaName === teaName);
