@@ -1,24 +1,24 @@
-import { Title, Stack, Flex, Text, Input, Group, Button, PasswordInput, rem } from "@mantine/core";
-import React, { useState } from "react";
-import classes from "./SignupForm.module.css";
+import { useState, FormEvent, ChangeEvent } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth"; 
+import { auth } from "../../../firebase";
 import { IconLock } from '@tabler/icons-react';
 import { useMediaQuery } from '@mantine/hooks';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Title, Stack, Flex, Text, Input, Group, Button, PasswordInput, rem } from "@mantine/core";
+import classes from "./SignupForm.module.css";
 import { FirebaseError } from "firebase/app";
-import { auth } from "../../../firebase";
-
 
 export default function SignupForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
+  const [signupError, setSignupError] = useState<string>(""); 
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
   const icon = <IconLock style={{ width: rem(18), height: rem(18) }} stroke={1.5} />;
 
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -33,18 +33,29 @@ export default function SignupForm() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log("User signed up successfully:", user);
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setPasswordError("");
-    } catch (error: unknown) {
-      console.error("Error signing up:", (error as FirebaseError).message);
+
+      window.location.href = "/";
+
+      setTimeout(() => {
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setPasswordError("");
+        setSignupError(""); 
+      }, 2000);
+    } catch (error) {
+      console.error("Error signing up:", (error as Error).message);
+      if ((error as FirebaseError).code === "auth/email-already-in-use") { 
+        setSignupError("Email is already in use");
+      } else {
+        setSignupError((error as Error).message);
+      }
     }
   };
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
     if (e.target.value.length < 6) {
       setPasswordError("Password should be at least 6 characters long");
@@ -84,6 +95,7 @@ export default function SignupForm() {
             <PasswordInput withAsterisk rightSection={icon} label="Confirm Password" placeholder="Confirm password" mt="md" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
             {passwordError && <Text size="sm" color="red" mt="sm">{passwordError}</Text>}
           </Stack>
+          {signupError && <Text size="sm" color="red" mt="sm">{signupError}</Text>}
           <Group justify="space-between" gap="1rem" style={{ display: "flex", paddingTop: "1.5rem" }}>
             <Button type="submit">
               <Text size="md">Register</Text>

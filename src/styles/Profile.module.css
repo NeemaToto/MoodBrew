@@ -1,0 +1,25 @@
+.mainmsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .divmsg {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: -13%;
+    height: 40vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 40vh;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .txtmsg {
+    text-align: center;
+    margin: 0;
+  }
+  

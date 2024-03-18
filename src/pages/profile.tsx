@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Text, Title, Stack, Card, Image, Badge, Button, Group } from '@mantine/core';
 import { auth } from '../../firebase';
+import classes from '@/styles/Profile.module.css'
 
 export default function Profile() {
   const [savedTeas, setSavedTeas] = useState<string[]>([]);
@@ -38,9 +39,12 @@ export default function Profile() {
 
   if (!user) {
     return (
-      <main>
-        <Text>Login to view your teas.</Text>
+      <main className={classes.mainmsg}>
+        <div className={classes.divmsg}>
+          <p className={classes.txtmsg}>Login to view your teas.</p>
+        </div>
       </main>
+
     );
   }
 
