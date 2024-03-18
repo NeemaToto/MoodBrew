@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Text, Title, Stack, Card, Image, Badge, Button, Group } from '@mantine/core';
+import { Text, Title, Stack, Card, Image, Badge, Button, Group, TextInput } from '@mantine/core';
 import { auth } from '../../firebase';
-import classes from '@/styles/Profile.module.css'
-import { handleTeaClick } from '@/components/teaclick';
+import classes from '@/styles/Profile.module.css';
 import { useRouter } from 'next/router';
+import { handleTeaClick } from '@/components/teaclick';
 
 export default function Profile() {
   const [savedTeas, setSavedTeas] = useState<string[]>([]);
   const [teaData, setTeaData] = useState<Tea[]>([]);
   const [user, setUser] = useState<any | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const router = useRouter();
 
   useEffect(() => {
@@ -40,6 +41,19 @@ export default function Profile() {
     localStorage.setItem('savedTeas', JSON.stringify(updatedSavedTeas));
   };
 
+  const filteredSavedTeas = savedTeas.filter(teaName => {
+    const tea = teaData.find(tea => tea.teaName === teaName);
+    if (!tea) return false;
+    return (
+      tea.teaName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.origin.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.benefit.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.flavor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tea.caffeineLevel.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   if (!user) {
     return (
       <main className={classes.mainmsg}>
@@ -56,15 +70,21 @@ export default function Profile() {
         <Title c="taupe" order={1} fw={800}>
           Your Teas
         </Title>
-        {savedTeas.length === 0 ? (
+        <TextInput
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.currentTarget.value)}
+          placeholder="Search saved teas..."
+          style={{ marginBottom: '1rem' }}
+        />
+        {filteredSavedTeas.length === 0 ? (
           <div className={classes.mainmsg}>
             <div className={classes.divmsg}>
-              <p className={classes.txtmsg}>You dont have any teas saved</p>
+              <p className={classes.txtmsg}>No matching saved teas found.</p>
             </div>
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
-            {savedTeas.map((teaName: string, index: number) => {
+            {filteredSavedTeas.map((teaName: string, index: number) => {
               const tea = teaData.find(tea => tea.teaName === teaName);
               if (!tea) return null;
               return (
