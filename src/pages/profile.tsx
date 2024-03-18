@@ -79,7 +79,7 @@ export default function Profile() {
         {filteredSavedTeas.length === 0 ? (
           <div className={classes.mainmsg}>
             <div className={classes.divmsg}>
-              <p className={classes.txtmsg}>No matching saved teas found.</p>
+              <p className={classes.txtmsg}>No saved teas found.</p>
             </div>
           </div>
         ) : (
