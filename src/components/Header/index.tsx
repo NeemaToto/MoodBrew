@@ -131,11 +131,16 @@ export function Header() {
                             <Button onClick={handleLogout}>Log out</Button>
                         ) : (
                             <>
-                                <Button variant="default">Log in</Button>
-                                <Button>Sign up</Button>
+                                <a href='/login'>
+                                    <Button style={{ width: '100%' }} variant="default">Log in</Button>
+                                </a>
+                                <a href='/signup'>
+                                    <Button style={{ width: '100%' }}>Sign up</Button>
+                                </a>
                             </>
                         )}
                     </Group>
+
                 </ScrollArea>
             </Drawer>
         </Box>
