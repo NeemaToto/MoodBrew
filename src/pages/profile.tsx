@@ -7,7 +7,6 @@ export default function Profile() {
   const [teaData, setTeaData] = useState<Tea[]>([]);
 
   useEffect(() => {
-    // Load saved teas from localStorage when component mounts on the client side
     const savedTeasFromStorage = JSON.parse(localStorage.getItem('savedTeas') || '[]');
     setSavedTeas(savedTeasFromStorage);
 
@@ -41,7 +40,7 @@ export default function Profile() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
           {savedTeas.map((teaName: string, index: number) => {
             const tea = teaData.find(tea => tea.teaName === teaName);
-            if (!tea) return null; // Skip rendering if tea data is not found
+            if (!tea) return null;
             return (
               <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
                 <Card.Section>
