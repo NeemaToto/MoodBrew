@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Text, Title, Stack, Card, Image, Badge, Button, Group } from '@mantine/core';
+import { auth } from '../../firebase';
 
 export default function Profile() {
   const [savedTeas, setSavedTeas] = useState<string[]>([]);
   const [teaData, setTeaData] = useState<Tea[]>([]);
+  const [user, setUser] = useState<any | null>(null);
 
   useEffect(() => {
     const savedTeasFromStorage = JSON.parse(localStorage.getItem('savedTeas') || '[]');
@@ -20,6 +22,12 @@ export default function Profile() {
     };
 
     fetchData();
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   const handleRemove = (teaName: string) => {
@@ -27,6 +35,14 @@ export default function Profile() {
     setSavedTeas(updatedSavedTeas);
     localStorage.setItem('savedTeas', JSON.stringify(updatedSavedTeas));
   };
+
+  if (!user) {
+    return (
+      <main>
+        <Text>Login to view your teas.</Text>
+      </main>
+    );
+  }
 
   return (
     <main className={``}>

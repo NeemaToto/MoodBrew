@@ -28,7 +28,7 @@ export default function LoginForm() {
 
             switch (errorCode) {
                 case "auth/invalid-credential":
-                    errorMessage = "Invalid Credentials";
+                    errorMessage = "Invalid Email or Password";
                     break;
                 case "auth/user-not-found":
                     errorMessage = "User not registered, please sign up";
