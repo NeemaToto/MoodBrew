@@ -58,7 +58,7 @@ export default function Tea() {
                 <Image src={imageLink as string} layout="repsonsive" width={800} height={800} alt="picture"  style={{borderRadius: '12px'}} />
             </Group>
 
-            <Stack justify="center" align="center" gap={100} pb={100}>
+            <Stack justify="center" align="center" gap={100}>
                 <Title order={2}>
                     Information
                 </Title>
@@ -70,7 +70,7 @@ export default function Tea() {
                 </Group>
             </Stack>
 
-            {/*recipe carousel still needs styling*/}
+            {/*recipe carousel having responsive issues*/}
             <Stack>
                 <RecipeCarousel/>
             </Stack>

@@ -1,12 +1,12 @@
 import React from "react";
-import { Paper, Text, Title } from "@mantine/core";
+import { Paper, Text, Title, ScrollArea, Stack, Divider } from "@mantine/core";
 import '@mantine/carousel/styles.css';
 import classes from './recipeCard.module.css'
 
 
 interface CardProps {
     title: string;
-    ingredients: string;
+    ingredients: string[];
     servings: string;
     instructions: string;
 }
@@ -16,24 +16,28 @@ export default function RecipeCard({ title, ingredients, instructions, servings 
 
     return (
 
-        <Paper shadow="md" p="xl" radius="sm" className={classes.card}>
+        <Paper className={classes.card}>
+            <ScrollArea h={250} scrollbarSize={4}>
 
-            <div>
-                <Title c="taupe" order={3} className={classes.title}>
+                <Title c="taupe" order={4}>
                     {title}
                 </Title>
-                <span>
-                    {ingredients}
-                </span>
-            </div>
-            <div>
-                <span>
+                <Title c="taupe" order={5}>
                     {servings}
-                </span>
-                <Text>
-                    {instructions}
-                </Text>
-            </div>
+                </Title>
+                <Divider my="sm" color= 'sage' />
+                <Stack>
+                    <Text>
+                        <Title c="taupe" order={5}>Ingredients:</Title>
+                        {ingredients}
+                    </Text>
+                    <Text>
+                        <Title c="taupe" order={5}>Instructions:</Title>
+                        {instructions}
+                    </Text>
+                </Stack>
+                
+            </ScrollArea>
         </Paper>
     )
 }
