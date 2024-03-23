@@ -9,7 +9,7 @@ const teamMembers = [
     name: 'Kushal Kumar',
     role: 'Lead UI/UX Designer',
     image: '/public/OIP.jpg',
-    portfolioLink: 'https://kushalportfolio.com',
+    portfolioLink: 'https://kushalk.design',
     linkedinLink: 'https://www.linkedin.com/in/kushal-kumar-096853290/'
   },
   {
