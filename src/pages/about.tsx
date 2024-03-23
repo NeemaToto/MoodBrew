@@ -8,35 +8,35 @@ const teamMembers = [
   {
     name: 'Kushal Kumar',
     role: 'Lead UI/UX Designer',
-    image: 'kushal-image.jpg',
+    image: '/public/OIP.jpg',
     portfolioLink: 'https://kushalportfolio.com',
     linkedinLink: 'https://www.linkedin.com/in/kushal-kumar-096853290/'
   },
   {
     name: 'Meelaud Totonchi',
     role: 'Software Engineer',
-    image: 'meelaud-image.jpg',
+    image: '/public/OIP.jpg',
     portfolioLink: 'https://meelaudportfolio.com',
     linkedinLink: 'https://www.linkedin.com/in/meelaud-totonchi/'
   },
   {
     name: 'Neema Totonchi',
     role: 'Lead Full Stack Developer',
-    image: 'neema-image.jpg',
+    image: '/public/OIP.jpg',
     portfolioLink: 'https://neemaportfolio.com',
     linkedinLink: 'https://www.linkedin.com/in/neema-totonchi/'
   },
   {
     name: 'Olivia Fong',
     role: 'Lead Product Designer',
-    image: '/olivia-image.jpg',
+    image: '/public/OIP.jpg',
     portfolioLink: 'https://oliviask.com',
     linkedinLink: 'https://www.linkedin.com/in/oliviaskfong/'
   },
   {
     name: 'Patrick Hui',
     role: 'Product Designer',
-    image: '/patrick-image.jpg',
+    image: '/public/OIP.jpg',
     portfolioLink: 'https://patrickhui.design',
     linkedinLink: 'https://www.linkedin.com/in/patrick-hui-design/'
   },
