@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, Title, Stack, TextInput } from "@mantine/core";
-import TeaCard from "@/components/peacard";
+import TeaCard from "@/components/TeaCard";
 
 export default function Teas() {
   const [searchTerm, setSearchTerm] = useState("");

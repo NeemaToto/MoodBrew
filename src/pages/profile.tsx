@@ -14,7 +14,7 @@ import {
 import { auth } from "../../firebase";
 import classes from "@/styles/Profile.module.css";
 import { useRouter } from "next/router";
-import { handleTeaClick } from "@/components/peaclick";
+import { handleTeaClick } from "@/components/TeaClick";
 
 export default function Profile() {
   const [savedTeas, setSavedTeas] = useState<string[]>([]);
