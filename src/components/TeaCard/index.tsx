@@ -10,6 +10,7 @@ import {
   Group,
   Pagination,
 } from "@mantine/core";
+import { useMediaQuery } from '@mantine/hooks';
 import styles from "./teaCard.module.css";
 
 interface Tea {
@@ -34,6 +35,8 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage: number = 9;
+
+  const screen = useMediaQuery('(max-width: 414px)');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -145,6 +148,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
           value={currentPage}
           onChange={setCurrentPage}
           style={{ userSelect: "none" }}
+          size={screen ? 'sm' : 'md'}
         />
       </Group>
     </>

@@ -1,4 +1,4 @@
-import { Flex, Stack, Text, Container } from "@mantine/core";
+import { Stack, Text, Container } from "@mantine/core";
 
 import {
   Chart as ChartJS,
@@ -63,7 +63,7 @@ export default function Chart() {
           55% of Canadian women are tea drinkers compared to 41% of Canadian
           men.
         </Text>
-        <Container w="70vw" h="60vw">
+        <Container w="70vw" h="60vw" style={{minWidth: '20rem', minHeight: '20rem'}}>
           <Bar data={data} options={options} />
         </Container>
       </Stack>
