@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Title, rem, Stack } from "@mantine/core";
 import { Carousel } from '@mantine/carousel';
 import '@mantine/carousel/styles.css';

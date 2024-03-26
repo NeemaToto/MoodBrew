@@ -1,4 +1,3 @@
-import React from "react";
 import { Stack, Title, Text } from "@mantine/core";
 import classes from "@/styles/About.module.css";
 import ProfileCard from "@/components/ProfileCard";

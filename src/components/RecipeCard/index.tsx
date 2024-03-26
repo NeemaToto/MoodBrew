@@ -1,4 +1,3 @@
-import React from "react";
 import { Paper, Text, Title, ScrollArea, Stack, Divider } from "@mantine/core";
 import '@mantine/carousel/styles.css';
 import classes from './recipeCard.module.css'
