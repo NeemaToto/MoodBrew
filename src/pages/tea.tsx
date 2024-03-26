@@ -36,7 +36,6 @@ export default function Tea() {
             {/*Not fully responsive yet*/}
             <Group
                 gap={10}
-                w='100%'
                 style={{ flexGrow: 'grow', borderRadius: '12px'}}
                 justify={isMediumScreen ? 'space-around' : 'space-between'}
                 bg='dun.1'
@@ -70,7 +69,7 @@ export default function Tea() {
                 </Group>
             </Stack>
 
-            {/*recipe carousel having responsive issues*/}
+            
             <Stack>
                 <RecipeCarousel/>
             </Stack>

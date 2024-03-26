@@ -1,39 +1,37 @@
-.bigScreen{
-    @media screen and (max-width: 1000px) {
-        display: none;
-        
-    }
+.bigScreen {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 }
 
-.smallScreen{
-    display: none;
-    @media screen and (max-width: 1000px) {
-        display: flex;
-        flex-direction: column;
-        
-    }
+.smallScreen {
+  display: none;
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .searchBar {
-    position: float;
-    left: 0;
-    top: 0;
-    width: 30%;
-    @media screen and (max-width: 1000px) {
-        width: 100%;
-    }
+  position: float;
+  left: 0;
+  top: 0;
+  width: 30%;
+  @media screen and (max-width: 1000px) {
+    width: 100%;
   }
-
-.main{
-    min-height: 50vh;
-    margin-top: 2rem;
 }
 
-.heroImage2{
-    margin-top: 4rem;
-    height: auto;
-    border: 1px solid var(--taupe);
-    border-radius: 1rem;
-    width: 100%;
-    height: 40vh;
+.main {
+  min-height: 50vh;
+  margin-top: 2rem;
+}
+
+.heroImage2 {
+  margin-top: 4rem;
+  height: auto;
+  border: 1px solid var(--taupe);
+  border-radius: 1rem;
+  width: 100%;
+  height: 40vh;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { Text, Title, Stack, TextInput } from '@mantine/core';
 
 export default function Teas() {

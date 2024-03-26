@@ -30,7 +30,7 @@ export default function RecipeCarousel() {
                         'X-API-KEY': 'oaPOJKJa3+1l1592JDWYwg==nqddLuGK08t7Algo'
                     }
                 })
-                setRecipes(response.data.slice(0, 4));
+                setRecipes(response.data.slice(0, 3));
                 console.log(response.data);
             } catch (error) {
                 console.error('Failed to fetch recipes', error)
@@ -63,7 +63,8 @@ export default function RecipeCarousel() {
     )
 }
 
-/* <Carousel
+/* 
+            <Carousel
                 withIndicators
                 nextControlIcon={<IconArrowRight style={{ width: rem(16), height: rem(16)}} />}
                 previousControlIcon={<IconArrowLeft style={{ width: rem(16), height: rem(16)}} />}
@@ -85,4 +86,5 @@ export default function RecipeCarousel() {
                         />
                     </Carousel.Slide>
                 ))}
-            </Carousel> */
+            </Carousel>
+*/

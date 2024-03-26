@@ -1,11 +1,9 @@
-import React from 'react'
-import SignupForm from '@/components/SignupForm'
-
+import SignupForm from "@/components/SignupForm";
 
 export default function SignUp() {
   return (
     <main className={``}>
-        <SignupForm />
+      <SignupForm />
     </main>
-  )
+  );
 }

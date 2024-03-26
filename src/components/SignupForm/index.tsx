@@ -1,9 +1,19 @@
 import { useState, FormEvent, ChangeEvent } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth"; 
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
-import { IconLock } from '@tabler/icons-react';
-import { useMediaQuery } from '@mantine/hooks';
-import { Title, Stack, Flex, Text, Input, Group, Button, PasswordInput, rem } from "@mantine/core";
+import { IconLock } from "@tabler/icons-react";
+import { useMediaQuery } from "@mantine/hooks";
+import {
+  Title,
+  Stack,
+  Flex,
+  Text,
+  Input,
+  Group,
+  Button,
+  PasswordInput,
+  rem,
+} from "@mantine/core";
 import classes from "./SignupForm.module.css";
 import { FirebaseError } from "firebase/app";
 
@@ -14,9 +24,11 @@ export default function SignupForm() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
-  const [signupError, setSignupError] = useState<string>(""); 
-  const isSmallScreen = useMediaQuery('(max-width: 768px)');
-  const icon = <IconLock style={{ width: rem(18), height: rem(18) }} stroke={1.5} />;
+  const [signupError, setSignupError] = useState<string>("");
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const icon = (
+    <IconLock style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+  );
 
   const handleSignup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +42,11 @@ export default function SignupForm() {
         throw new Error("Password should be at least 6 characters long");
       }
 
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
       console.log("User signed up successfully:", user);
 
@@ -43,11 +59,11 @@ export default function SignupForm() {
         setPassword("");
         setConfirmPassword("");
         setPasswordError("");
-        setSignupError(""); 
+        setSignupError("");
       }, 2000);
     } catch (error) {
       console.error("Error signing up:", (error as Error).message);
-      if ((error as FirebaseError).code === "auth/email-already-in-use") { 
+      if ((error as FirebaseError).code === "auth/email-already-in-use") {
         setSignupError("Email is already in use");
       } else {
         setSignupError((error as Error).message);
@@ -72,7 +88,8 @@ export default function SignupForm() {
             Sign Up for free
           </Title>
           <Text c="taupe" size="sm">
-            By making an account you can post reviews and share your experiences!
+            By making an account you can post reviews and share your
+            experiences!
           </Text>
         </Stack>
         <form className={classes.form} onSubmit={handleSignup}>
@@ -80,23 +97,77 @@ export default function SignupForm() {
             Sign Up Now!
           </Title>
           <Stack>
-            <Flex justify="space-between" gap="1rem" direction={isSmallScreen ? "column" : "row"} style={{ display: "flex" }}>
-              <Input.Wrapper label="First name" withAsterisk description="" style={{ flex: 1 }}>
-                <Input placeholder="your first name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+            <Flex
+              justify="space-between"
+              gap="1rem"
+              direction={isSmallScreen ? "column" : "row"}
+              style={{ display: "flex" }}
+            >
+              <Input.Wrapper
+                label="First name"
+                withAsterisk
+                description=""
+                style={{ flex: 1 }}
+              >
+                <Input
+                  placeholder="your first name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
               </Input.Wrapper>
-              <Input.Wrapper label="Last name" withAsterisk description="" style={{ flex: 1 }}>
-                <Input placeholder="your last name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+              <Input.Wrapper
+                label="Last name"
+                withAsterisk
+                description=""
+                style={{ flex: 1 }}
+              >
+                <Input
+                  placeholder="your last name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
               </Input.Wrapper>
             </Flex>
             <Input.Wrapper label="Email" withAsterisk description="">
-              <Input placeholder="@ Your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <Input
+                placeholder="@ Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </Input.Wrapper>
-            <PasswordInput withAsterisk leftSection={icon} label="Password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-            <PasswordInput withAsterisk rightSection={icon} label="Confirm Password" placeholder="Confirm password" mt="md" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-            {passwordError && <Text size="sm" color="red" mt="sm">{passwordError}</Text>}
+            <PasswordInput
+              withAsterisk
+              leftSection={icon}
+              label="Password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <PasswordInput
+              withAsterisk
+              rightSection={icon}
+              label="Confirm Password"
+              placeholder="Confirm password"
+              mt="md"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            {passwordError && (
+              <Text size="sm" color="red" mt="sm">
+                {passwordError}
+              </Text>
+            )}
           </Stack>
-          {signupError && <Text size="sm" color="red" mt="sm">{signupError}</Text>}
-          <Group justify="space-between" gap="1rem" style={{ display: "flex", paddingTop: "1.5rem" }}>
+          {signupError && (
+            <Text size="sm" color="red" mt="sm">
+              {signupError}
+            </Text>
+          )}
+          <Group
+            justify="space-between"
+            gap="1rem"
+            style={{ display: "flex", paddingTop: "1.5rem" }}
+          >
             <Button type="submit">
               <Text size="md">Register</Text>
             </Button>

@@ -25,13 +25,3 @@ interface ProfileCardProps {
   portfolioLink: string;
   linkedinLink: string;
 }
-
-interface ChartData {
-  labels: string[];
-  datasets: {
-      label: string;
-      data: number[];
-      borderColor: string;
-      backgroundColor: string;
-  }[];
-}
