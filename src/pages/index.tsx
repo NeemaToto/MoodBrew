@@ -4,6 +4,7 @@ import TeaCard from '@/components/teaCard'
 import Image from 'next/image'
 import classes from '@/styles/Home.module.css'
 import  NavbarSearch  from './searchBar'
+import Chart from '@/components/Chart'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         </div>
       </div>
       <FAQ />
+      <Chart />
     </main>
 
   )
