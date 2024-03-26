@@ -1,4 +1,3 @@
-import React from "react";
 import { Paper, Text, Title, ScrollArea, Stack, Divider } from "@mantine/core";
 import '@mantine/carousel/styles.css';
 import classes from './recipeCard.module.css'
@@ -17,7 +16,7 @@ export default function RecipeCard({ title, ingredients, instructions, servings 
     return (
 
         <Paper className={classes.card}>
-            <ScrollArea h={250} scrollbarSize={4}>
+            <ScrollArea h={350} scrollbarSize={4}>
 
                 <Title c="taupe" order={4}>
                     {title}

@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Title, rem, Stack } from "@mantine/core";
-import { Carousel } from '@mantine/carousel';
+import { useEffect, useState } from "react";
+import { Title, Stack } from "@mantine/core";
 import '@mantine/carousel/styles.css';
-import classes from './recipeCarousel.module.css'
-import { IconArrowRight, IconArrowLeft } from '@tabler/icons-react';
 import RecipeCard from "../RecipeCard";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -21,7 +18,7 @@ export default function RecipeCarousel() {
     const router = useRouter();
     const { teaName } = router.query;
 
-    
+
 
     useEffect(() => {
         if (!teaName) return;
@@ -45,9 +42,28 @@ export default function RecipeCarousel() {
 
 
     return (
-        <Stack align="center" gap={100} pb={100} className={``}>
+        <Stack align="center" justify="center" gap={50} pb={100}>
             <Title order={2}>Recipe Suggestions</Title>
-            <Carousel
+
+            {recipes.length > 0 ? (
+                recipes.map((recipe, index) => (
+                    <RecipeCard
+                        key={index}
+                        title={recipe.title}
+                        ingredients={recipe.ingredients} 
+                        instructions={recipe.instructions}
+                        servings={recipe.servings}
+                    />
+                ))
+            ) : (
+                <Title order={4}>No recipes available.</Title> 
+            )}
+            
+        </Stack>
+    )
+}
+
+/* <Carousel
                 withIndicators
                 nextControlIcon={<IconArrowRight style={{ width: rem(16), height: rem(16)}} />}
                 previousControlIcon={<IconArrowLeft style={{ width: rem(16), height: rem(16)}} />}
@@ -69,9 +85,4 @@ export default function RecipeCarousel() {
                         />
                     </Carousel.Slide>
                 ))}
-            </Carousel>
-
-        </Stack>
-
-    )
-}
+            </Carousel> */
