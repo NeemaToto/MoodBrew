@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Text, Title, Stack, TextInput } from "@mantine/core";
 import TeaCard from "@/components/TeaCard";
 
