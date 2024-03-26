@@ -1,8 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { Card, Image, Text, Badge, Button, Group, Pagination } from '@mantine/core';
-import styles from './teaCard.module.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import {
+  Card,
+  Image,
+  Text,
+  Badge,
+  Button,
+  Group,
+  Pagination,
+} from "@mantine/core";
+import styles from "./teaCard.module.css";
 
 interface Tea {
   teaName: string;
@@ -30,20 +38,24 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Tea[]>('https://raw.githubusercontent.com/NeemaToto/NeemaToto.github.io/main/data/tea.json');
+        const response = await axios.get<Tea[]>(
+          "https://raw.githubusercontent.com/NeemaToto/NeemaToto.github.io/main/data/tea.json"
+        );
         setTeaData(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
 
-    const savedTeasFromStorage = JSON.parse(localStorage.getItem('savedTeas') || '[]');
+    const savedTeasFromStorage = JSON.parse(
+      localStorage.getItem("savedTeas") || "[]"
+    );
     setSavedTeas(savedTeasFromStorage);
   }, []);
 
-  const filteredTeas = teaData.filter(tea => {
+  const filteredTeas = teaData.filter((tea) => {
     return (
       tea.teaName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       tea.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -54,32 +66,36 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
     );
   });
 
-  const defaultImageLink = "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png";
+  const defaultImageLink =
+    "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png";
 
   const handleTeaClick = (tea: Tea) => {
     router.push({
-      pathname: '/tea',
+      pathname: "/tea",
       query: { ...tea },
     });
   };
 
   const handleSave = (teaName: string) => {
     const updatedSavedTeas = savedTeas.includes(teaName)
-      ? savedTeas.filter(savedTea => savedTea !== teaName)
+      ? savedTeas.filter((savedTea) => savedTea !== teaName)
       : [...savedTeas, teaName];
 
     setSavedTeas(updatedSavedTeas);
-    localStorage.setItem('savedTeas', JSON.stringify(updatedSavedTeas));
+    localStorage.setItem("savedTeas", JSON.stringify(updatedSavedTeas));
   };
 
   const indexOfLastItem: number = currentPage * itemsPerPage;
   const indexOfFirstItem: number = indexOfLastItem - itemsPerPage;
-  const currentTeas: Tea[] = filteredTeas.slice(indexOfFirstItem, indexOfLastItem);
+  const currentTeas: Tea[] = filteredTeas.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
   const totalPages: number = Math.ceil(filteredTeas.length / itemsPerPage);
 
   return (
     <>
-      <Group justify='center' align='center'>
+      <Group justify="center" align="center">
         <div className={styles.grid}>
           {currentTeas.map((tea, index) => (
             <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
@@ -88,7 +104,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
                   src={tea.imageLink || defaultImageLink}
                   width={400}
                   height={400}
-                  style={{ maxWidth: 'none', height: '400px' }}
+                  style={{ maxWidth: "none", height: "400px" }}
                   alt="Tea Image"
                 />
               </Card.Section>
@@ -110,7 +126,15 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
                 {`This tea is a ${tea.type} tea which takes ${tea.steepTime} to steep. The tea is originated from ${tea.origin} and has a ${tea.flavor} flavour with a ${tea.caffeineLevel} caffeine level.`}
               </Text>
 
-              <Button color="sage" fullWidth mt="md" radius="md" onClick={() => handleTeaClick(tea)} style={{ cursor: 'pointer' }}>
+              <Button
+                color="sage"
+                fullWidth
+                mt="md"
+                radius="md"
+                onClick={() => handleTeaClick(tea)}
+                style={{ cursor: "pointer" }}
+                data-testid="card-button"
+              >
                 View
               </Button>
             </Card>
@@ -120,7 +144,7 @@ export default function TeaCard({ searchTerm }: TeaCardProps) {
           total={totalPages}
           value={currentPage}
           onChange={setCurrentPage}
-          style={{ userSelect: 'none' }}
+          style={{ userSelect: "none" }}
         />
       </Group>
     </>

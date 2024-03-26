@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Text, Title, Stack, TextInput } from '@mantine/core';
-import TeaCard from '@/components/teaCard';
+import React, { useState } from "react";
+import { Text, Title, Stack, TextInput } from "@mantine/core";
+import TeaCard from "@/components/TeaCard";
 
 export default function Teas() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <main className={``}>
@@ -12,13 +12,15 @@ export default function Teas() {
           Looking for a Tea?
         </Title>
         <Text c="taupe" size="lg">
-          Use the search bar or navigate through our catalogue to find the perfect tea for your mood.
+          Use the search bar or navigate through our catalogue to find the
+          perfect tea for your mood.
         </Text>
         <TextInput
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.currentTarget.value)}
           placeholder="Search teas..."
-          style={{ marginBottom: '1rem' }}
+          style={{ marginBottom: "1rem" }}
+          type="search"
         />
         <TeaCard searchTerm={searchTerm} />
       </Stack>

@@ -1,10 +1,10 @@
-.main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form{
-    padding-top: 40px;
-    width: 80vw;
+.form {
+  padding-top: 40px;
+  width: 80vw;
 }
