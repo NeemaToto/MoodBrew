@@ -9,10 +9,8 @@ export default function NavbarSearch() {
         className={classes.input}
         placeholder="Search"
         size="xl"
-        rightSectionWidth={70}
         rightSection={
           <IconSearch
-            style={{ width: rem(20), height: rem(20), marginLeft: rem(65) }}
             stroke={1.5}
           />
         }
